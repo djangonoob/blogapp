@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Djang-oh!</title>
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+  </head>
+  <body>
+    <div class="pageHeader">
+      <h1><a href="/">Zoli tanul</a></h1>
+    </div>
+    <div class="content container">
+      <div class="row">
+	<div class="col-mod-8">
+	  {% for post in posts %}
+	  <div class="post">
+	    <div class="date">
+	      <p>published: {{ post.publishedDate }}</p>
+	    </div>
+	    <h2><a href="">{{ post.title }}</a></h2>
+	    <p>{{ post.text|linebreaks }}</p>
+	  </div>
+	  {% endfor %}
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
